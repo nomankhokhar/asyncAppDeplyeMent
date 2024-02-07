@@ -1,4 +1,4 @@
-![Project Screenshot](./company.png)
+![Project Screenshot](./APICALLS.png)
 # JavaScript Async Function's for API Call's
 
 In this Code you can deploy Application one by one in your's all Cloud Provider 
