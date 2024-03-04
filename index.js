@@ -29,3 +29,30 @@ async function sendMultipleApiRequests() {
 }
 
 sendMultipleApiRequests();
+
+
+
+function isEmptyString(str: string): boolean {
+	return str.trim() === ""
+}
+
+interface Data {
+	[key: string]: string | Data
+}
+
+function getKeysWithEmptyValues(obj: Data): string[] {
+	const keysWithEmptyValues: string[] = []
+
+	function traverse(obj: Data) {
+		for (const key in obj) {
+			if (typeof obj[key] === "object" && obj[key] !== null) {
+				traverse(obj[key] as Data)
+			} else if (isEmptyString(obj[key] as string)) {
+				keysWithEmptyValues.push(key)
+			}
+		}
+	}
+
+	traverse(obj)
+	return keysWithEmptyValues
+}
